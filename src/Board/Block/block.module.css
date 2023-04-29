@@ -1,0 +1,41 @@
+.block {
+	position: relative;
+	aspect-ratio: 1;
+	width: 100%;
+	margin: var(--border-width) var(--block-border-offset) 0;
+	border-bottom-right-radius: calc(var(--board-border-radius) / 2);
+}
+
+.block::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	box-shadow: 0 0 0 var(--border-width) var(--border-color);
+	transform: translate(var(--block-border-offset), var(--block-border-offset));
+}
+
+.block-0::before {
+	display: none;
+}
+
+.block-1 {
+	background-color: #cee4fe;
+}
+.block-2 {
+	background-color: #5652ff;
+}
+.block-3 {
+	background-color: #fe8378;
+}
+.block-4 {
+	background-color: #ffc701;
+}
+.block-5 {
+	background-color: #12a858;
+}
+.block-6 {
+	background-color: #a85df6;
+}
+.block-7 {
+	background-color: #f64d1f;
+}

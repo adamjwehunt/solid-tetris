@@ -1,0 +1,34 @@
+.board {
+	display: flex;
+	flex-direction: column;
+	width: calc(100vw - 3rem);
+	max-width: calc(10 * (calc(100dvh - 3rem) / 20));
+	position: relative;
+	padding-bottom: 0.125rem;
+	border: var(--border-width) solid var(--border-color);
+	border-radius: var(--board-border-radius);
+	background-color: white;
+}
+
+.board:focus-visible {
+	outline: none;
+}
+
+.score {
+	position: absolute;
+	top: 0.125rem;
+	right: 0.35rem;
+	font-size: 1rem;
+}
+
+.border {
+	position: absolute;
+	inset: 0;
+	background: var(--border-color);
+	border-radius: calc(var(--board-border-radius) * 1.5);
+	transform: translate(
+		calc(var(--board-border-radius) * 0.75),
+		calc(var(--board-border-radius) * 0.75)
+	);
+	z-index: -1;
+}
