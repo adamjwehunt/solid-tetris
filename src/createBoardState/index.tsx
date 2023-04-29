@@ -121,12 +121,8 @@ function createBoardState() {
 		}
 	}
 
-	function getDisplay() {
-		return mergeStage(stage(), piece(), position());
-	}
-
 	return {
-		display: () => getDisplay(),
+		display: () => mergeStage(stage(), piece(), position()),
 		score,
 		onKeyDown,
 	};

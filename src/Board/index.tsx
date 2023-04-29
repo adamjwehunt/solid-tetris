@@ -7,7 +7,7 @@ const Board = () => {
 	const { display, score, onKeyDown } = createBoardState();
 
 	return (
-		<div class={styles.board} onKeyDown={onKeyDown}>
+		<div class={styles.board} tabIndex={0} onKeyDown={onKeyDown}>
 			<div class={styles.border} />
 			<div class={styles.score}>{score()}</div>
 			<For each={display()}>{(row) => <Row row={row} />}</For>
