@@ -6,7 +6,7 @@ interface BlockProps {
 }
 
 const Block = ({ block }: BlockProps) => (
-	<span class={classnames(styles.block, styles[`block-${block ?? 0}`])} />
+	<div class={classnames(styles.block, styles[`block-${block ?? 0}`])} />
 );
 
 export default Block;

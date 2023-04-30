@@ -2,12 +2,3 @@
 	display: flex;
 	margin-left: -0.25rem;
 }
-
-.row:last-child span:first-child,
-.row:last-child span:first-child::before {
-	border-bottom-left-radius: calc(var(--board-border-radius) * .75);
-}
-
-.row:last-child span:last-child::before {
-	border-bottom-right-radius: calc(var(--board-border-radius) * .75);
-}

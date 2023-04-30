@@ -1,9 +1,13 @@
 import type { Component } from 'solid-js';
-import styles from './app.module.css';
+import { COLUMN_COUNT, ROW_COUNT } from './boardState';
 import Board from './Board';
+import styles from './app.module.css';
 
 const App: Component = () => (
-	<main class={styles.app}>
+	<main
+		class={styles.app}
+		style={{ '--column-count': COLUMN_COUNT, '--row-count': ROW_COUNT }}
+	>
 		<Board />
 	</main>
 );

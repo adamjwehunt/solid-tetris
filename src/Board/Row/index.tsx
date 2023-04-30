@@ -7,9 +7,9 @@ interface RowProps {
 }
 
 const Row = ({ row }: RowProps) => (
-	<span class={styles.row}>
+	<div class={styles.row}>
 		<For each={row}>{(block) => <Block block={block} />}</For>
-	</span>
+	</div>
 );
 
 export default Row;

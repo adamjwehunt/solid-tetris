@@ -1,0 +1,9 @@
+.svgWrapper {
+	position: relative;
+}
+
+.svgWrapper svg {
+	position: absolute;
+	inset: 0;
+	overflow: visible;
+}

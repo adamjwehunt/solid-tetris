@@ -14,7 +14,7 @@ export const ROW_COUNT = 20;
 const LINE_CLEAR_SCORE = 1;
 const TICK_INTERVAL = 800;
 
-function createBoardState() {
+function boardState() {
 	const [stage, setStage] = createSignal(createEmptyStage());
 	const [piece, setPiece] = createSignal(getRandomPiece());
 	const [position, setPosition] = createSignal(getStartingPosition(piece()));
@@ -128,4 +128,4 @@ function createBoardState() {
 	};
 }
 
-export default createBoardState;
+export default boardState;

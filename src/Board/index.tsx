@@ -1,16 +1,19 @@
 import { For } from 'solid-js';
-import createBoardState from '../createBoardState';
+import boardState from '../boardState';
 import Row from './Row';
+import { ScaleText } from '../components/ScaleText';
 import styles from './board.module.css';
 
 const Board = () => {
-	const { display, score, onKeyDown } = createBoardState();
+	const { display, score, onKeyDown } = boardState();
 
 	return (
-		<div class={styles.board} tabIndex={0} onKeyDown={onKeyDown}>
-			<div class={styles.border} />
-			<div class={styles.score}>{score()}</div>
-			<For each={display()}>{(row) => <Row row={row} />}</For>
+		<div class={styles.boardWrapper}>
+			<ScaleText className={styles.score} align={'right'} text={score} />
+			<div class={styles.board} tabIndex={0} onKeyDown={onKeyDown}>
+				<For each={display()}>{(row) => <Row row={row} />}</For>
+			</div>
+			<div class={styles.boardShadow} />
 		</div>
 	);
 };
