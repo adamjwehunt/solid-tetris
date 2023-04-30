@@ -1,8 +1,8 @@
 import { For, onMount } from 'solid-js';
 import boardState from '../boardState';
 import Row from './Row';
-import { ScaleText } from '../components/ScaleText';
 import styles from './board.module.css';
+import { Score } from './Score';
 
 const Board = () => {
 	let boardRef: HTMLDivElement | undefined;
@@ -14,7 +14,7 @@ const Board = () => {
 
 	return (
 		<div class={styles.boardWrapper}>
-			<ScaleText className={styles.score} align={'right'} text={score} />
+			<Score score={score} />
 			<div
 				ref={boardRef}
 				class={styles.board}

@@ -1,0 +1,18 @@
+.score,
+.scoreShadow {
+	position: absolute;
+	top: var(--border-width);
+	right: calc(var(--border-width) * 2);
+	z-index: 2;
+	height: calc(var(--board-height) / var(--row-count));
+	width: calc(var(--board-width) / var(--column-count));
+	max-height: calc(var(--max-board-height) / var(--row-count));
+	max-width: calc(var(--max-board-width) / var(--column-count));
+	font-weight: 700;
+}
+
+.scoreShadow {
+	transform: translate(3.5%, 3.5%);
+	fill: var(--l-piece-color);
+	z-index: 1;
+}

@@ -19,23 +19,23 @@
 }
 
 .block-1 {
-	background-color: #cee4fe;
+	background-color: var(--i-piece-color);
 }
 .block-2 {
-	background-color: #5652ff;
+	background-color: var(--j-piece-color);
 }
 .block-3 {
-	background-color: #fe8378;
+	background-color: var(--l-piece-color);
 }
 .block-4 {
-	background-color: #ffc701;
+	background-color: var(--o-piece-color);
 }
 .block-5 {
-	background-color: #12a858;
+	background-color: var(--s-piece-color);
 }
 .block-6 {
-	background-color: #a85df6;
+	background-color: var(--t-piece-color);
 }
 .block-7 {
-	background-color: #f64d1f;
+	background-color: var(--z-piece-color);
 }

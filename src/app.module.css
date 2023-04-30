@@ -15,6 +15,14 @@
 	--border-width: 0.25rem;
 	--block-border-offset: calc(var(--border-width) / 2);
 
+	--i-piece-color: #cee4fe;
+	--j-piece-color: #5652ff;
+	--l-piece-color: #fe8378;
+	--o-piece-color: #ffc701;
+	--s-piece-color: #12a858;
+	--t-piece-color: #a85df6;
+	--z-piece-color: #f64d1f;
+
 	position: absolute;
 	display: flex;
 	flex-direction: column;

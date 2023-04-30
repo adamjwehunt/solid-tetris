@@ -30,17 +30,6 @@
 	margin-top: -0.35rem;
 }
 
-.score {
-	position: absolute;
-	top: var(--border-width);
-	right: calc(var(--border-width) * 2);
-	z-index: 1;
-	height: calc(var(--board-height) / var(--row-count));
-	width: calc(var(--board-width) / var(--column-count));
-	max-height: calc(var(--max-board-height) / var(--row-count));
-	max-width: calc(var(--max-board-width) / var(--column-count));
-}
-
 .boardShadow {
 	border-radius: calc(var(--board-border-radius) * 1.5);
 	background-color: black;
