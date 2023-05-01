@@ -23,7 +23,7 @@
 	--t-piece-color: #a85df6;
 	--z-piece-color: #f64d1f;
 
-	position: absolute;
+	position: fixed;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
