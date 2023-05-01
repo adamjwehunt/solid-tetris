@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { COLUMN_COUNT, ROW_COUNT } from './boardState';
+import { COLUMN_COUNT, ROW_COUNT } from './useBoard';
 import Board from './Board';
 import styles from './app.module.css';
 

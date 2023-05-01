@@ -1,5 +1,5 @@
 import { For, onMount } from 'solid-js';
-import boardState from '../boardState';
+import useBoard from '../useBoard';
 import Row from './Row';
 import styles from './board.module.css';
 import { Score } from './Score';
@@ -10,7 +10,7 @@ const Board = () => {
 		boardRef?.focus();
 	});
 
-	const { display, score, onKeyDown } = boardState();
+	const { display, score, onKeyDown } = useBoard();
 
 	return (
 		<div class={styles.boardWrapper}>
