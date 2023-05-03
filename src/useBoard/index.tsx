@@ -21,7 +21,7 @@ function useBoard() {
 	const [position, setPosition] = createSignal(getStartingPosition(piece()));
 	const [score, setScore] = createSignal(0);
 
-	createEffect(() => removeLine());
+	createEffect(removeLine);
 
 	const tickInterval = setInterval(tick, TICK_INTERVAL);
 	onCleanup(() => clearInterval(tickInterval));
