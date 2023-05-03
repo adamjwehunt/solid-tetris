@@ -9,6 +9,7 @@
 	max-height: calc(var(--max-board-height) / var(--row-count));
 	max-width: calc(var(--max-board-width) / var(--column-count));
 	font-weight: 700;
+	user-select: none;
 }
 
 .scoreShadow {

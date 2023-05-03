@@ -7,7 +7,8 @@ import {
 	mergeStage,
 } from './helpers';
 import { getRandomPiece } from './pieces';
-import { KeyActions, AllowedKeys, Block, Piece } from './types';
+import { Block, Piece, Action } from './types';
+import eventHandler from './eventHandler';
 
 export const COLUMN_COUNT = 10;
 export const ROW_COUNT = 20;
@@ -73,21 +74,6 @@ function useBoard() {
 		}
 	}
 
-	function onKeyDown(event: KeyboardEvent) {
-		const keyActions: KeyActions = {
-			ArrowUp: rotatePiece,
-			ArrowRight: () => movePosition({ x: 1, y: 0 }),
-			ArrowLeft: () => movePosition({ x: -1, y: 0 }),
-			ArrowDown: () => movePosition({ x: 0, y: 1 }),
-		};
-
-		const action = keyActions[event.key as AllowedKeys];
-		if (action) {
-			event.preventDefault();
-			action();
-		}
-	}
-
 	function movePosition({ x, y }: Block) {
 		const newPosition = getNewPosition(position(), { x, y });
 		if (!isValidPosition(newPosition, piece(), stage())) {
@@ -121,10 +107,22 @@ function useBoard() {
 		}
 	}
 
+	eventHandler((action: Action) => {
+		const actions: {
+			[key in Action]: () => void;
+		} = {
+			rotate: rotatePiece,
+			moveRight: () => movePosition({ x: 1, y: 0 }),
+			moveLeft: () => movePosition({ x: -1, y: 0 }),
+			moveDown: () => movePosition({ x: 0, y: 1 }),
+		};
+
+		actions[action]?.();
+	});
+
 	return {
 		display: () => mergeStage(stage(), piece(), position()),
 		score,
-		onKeyDown,
 	};
 }
 

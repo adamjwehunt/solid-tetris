@@ -1,8 +1,10 @@
-export type AllowedKeys = 'ArrowUp' | 'ArrowRight' | 'ArrowLeft' | 'ArrowDown';
+export type Action = 'rotate' | 'moveLeft' | 'moveRight' | 'moveDown';
 
-export type KeyActions = {
-	[key in AllowedKeys]: () => void;
-};
+export type AllowedKeyboardEvent =
+	| 'ArrowUp'
+	| 'ArrowRight'
+	| 'ArrowLeft'
+	| 'ArrowDown';
 
 export type Stage = number[][];
 

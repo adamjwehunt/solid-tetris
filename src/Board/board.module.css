@@ -6,6 +6,10 @@
 	max-width: var(--max-board-width);
 }
 
+.boardWrapper:focus-visible {
+	outline: none;
+}
+
 .board,
 .boardShadow {
 	position: absolute;
@@ -20,10 +24,6 @@
 	border: var(--border-width) solid var(--border-color);
 	background-color: white;
 	overflow: hidden;
-}
-
-.board:focus-visible {
-	outline: none;
 }
 
 .board > div:first-child {

@@ -1,26 +1,22 @@
 import { For, onMount } from 'solid-js';
-import useBoard from '../useBoard';
 import Row from './Row';
-import styles from './board.module.css';
+import useBoard from '../useBoard';
 import { Score } from './Score';
+import styles from './board.module.css';
 
 const Board = () => {
 	let boardRef: HTMLDivElement | undefined;
+
 	onMount(() => {
 		boardRef?.focus();
 	});
 
-	const { display, score, onKeyDown } = useBoard();
+	const { display, score } = useBoard();
 
 	return (
-		<div class={styles.boardWrapper}>
+		<div ref={boardRef} class={styles.boardWrapper} tabIndex={0}>
 			<Score score={score} />
-			<div
-				ref={boardRef}
-				class={styles.board}
-				tabIndex={0}
-				onKeyDown={onKeyDown}
-			>
+			<div class={styles.board}>
 				<For each={display()}>{(row) => <Row row={row} />}</For>
 			</div>
 			<div class={styles.boardShadow} />
