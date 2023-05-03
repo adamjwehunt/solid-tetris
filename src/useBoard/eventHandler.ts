@@ -24,15 +24,7 @@ export default function eventHandler(onAction: (action: Action) => void) {
 		document.addEventListener('keydown', onKeyDown);
 	});
 
-	createEffect(() => {
-		if (isMovingDown()) {
-			moveDownInterval = setInterval(() => {
-				onAction('moveDown');
-			}, DOWN_MOVE_INTERVAL_MS);
-		} else {
-			clearInterval(moveDownInterval);
-		}
-	});
+	createEffect(onMoveDown);
 
 	onCleanup(() => {
 		document.removeEventListener('touchstart', onTouchStart);
@@ -70,6 +62,17 @@ export default function eventHandler(onAction: (action: Action) => void) {
 				setIsMovingDown(true);
 			});
 		}
+	}
+
+	function onMoveDown() {
+		if (!isMovingDown()) {
+			clearInterval(moveDownInterval);
+			return;
+		}
+
+		moveDownInterval = setInterval(() => {
+			onAction('moveDown');
+		}, DOWN_MOVE_INTERVAL_MS);
 	}
 
 	function onEndMove() {
