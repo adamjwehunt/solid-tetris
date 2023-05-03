@@ -30,6 +30,7 @@ export default function eventHandler(onAction: (action: Action) => void) {
 		document.removeEventListener('touchstart', onTouchStart);
 		document.removeEventListener('mousedown', onMouseDown);
 		document.removeEventListener('keydown', onKeyDown);
+		clearInterval(moveDownInterval);
 	});
 
 	const throttledLateralMove = createScheduled((fn) =>
