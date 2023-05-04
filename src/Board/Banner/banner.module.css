@@ -1,0 +1,6 @@
+.bannerText {
+	height: calc(var(--board-height) / var(--row-count) * 3);
+	width: calc(var(--board-width) / 3);
+	max-height: calc(var(--max-board-height) / var(--row-count) * 3);
+	max-width: calc(var(--max-board-width) / 3);
+}

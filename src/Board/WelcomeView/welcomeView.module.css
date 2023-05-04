@@ -1,0 +1,13 @@
+.container {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	border: var(--border-width) solid var(--border-color);
+	background-color: white;
+	overflow: hidden;
+	justify-content: space-around;
+	align-items: center;
+	bottom: var(--border-width);
+	border-radius: var(--board-border-radius);
+}

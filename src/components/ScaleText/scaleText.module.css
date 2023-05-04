@@ -1,3 +1,51 @@
+.textContainer {
+	position: relative;
+	user-select: none;
+	font-weight: 700;
+	height: 100%;
+	width: 100%;
+}
+
+.text,
+.shadow,
+.shadow2,
+.shadow3 {
+	position: absolute;
+	inset: 0;
+	text-shadow: 2px 0px 0px black, -2px 0px 0px black, 0px 2px 0px black,
+		0px -2px 0px black;
+}
+
+.text {
+	z-index: 4;
+	user-select: none;
+	fill: white;
+}
+
+.shadow {
+	transform: translate(4%, 4%);
+	z-index: 3;
+	fill: var(--o-piece-color);
+}
+
+.shadow2 {
+	transform: translate(7%, 7%);
+	z-index: 2;
+	fill: var(--l-piece-color);
+}
+
+.shadow3 {
+	transform: translate(10%, 10%);
+	z-index: 1;
+	fill: var(--s-piece-color);
+}
+
+.svgWrapper,
+.svgWrapper svg {
+	height: 100%;
+	width: 100%;
+}
+
 .svgWrapper {
 	position: relative;
 }

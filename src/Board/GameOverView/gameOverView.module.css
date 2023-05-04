@@ -1,0 +1,40 @@
+.container {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	border: var(--border-width) solid var(--border-color);
+	background-color: white;
+	overflow: hidden;
+	justify-content: space-around;
+	align-items: center;
+	bottom: var(--border-width);
+	border-radius: var(--board-border-radius);
+}
+
+.stats, .statsChild {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.linesClearedCount {
+	height: calc(var(--board-height) / var(--row-count) * 2);
+	width: calc(var(--board-width) / 3);
+	max-height: calc(var(--max-board-height) / var(--row-count) * 2);
+	max-width: calc(var(--max-board-width) / 3);
+}
+
+.linesClearedText {
+	height: calc(var(--board-height) / var(--row-count));
+	width: calc(var(--board-width) / 4);
+	max-height: calc(var(--max-board-height) / var(--row-count));
+	max-width: calc(var(--max-board-width) / 4);
+}
+
+.linesClearedTextFill {
+	fill: black;
+	text-shadow: none;
+}

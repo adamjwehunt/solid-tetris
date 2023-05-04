@@ -1,0 +1,25 @@
+.playAgain {
+	height: calc(var(--board-height) / var(--row-count) * 2);
+	width: calc(var(--board-width) / 3);
+	max-height: calc(var(--max-board-height) / var(--row-count) * 2);
+	max-width: calc(var(--max-board-width) / 3);
+	animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+	0%,
+	50% {
+		opacity: 0;
+	}
+	51%,
+	100% {
+		opacity: 1;
+	}
+}
+
+.playAgainText {
+	fill: var(--z-piece-color);
+	text-shadow: none;
+	font-size: 0.6rem;
+	margin-bottom: 15%;
+}

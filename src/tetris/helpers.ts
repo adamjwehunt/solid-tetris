@@ -67,3 +67,7 @@ export function isValidPosition(
 function isMoveValid(x: number, y: number) {
 	return x < 0 || y < 0 || x >= COLUMN_COUNT || y >= ROW_COUNT;
 }
+
+export function unableToPlaceNewPiece(newPiece: Piece, stage: Stage) {
+	return !isValidPosition(getStartingPosition(newPiece), newPiece, stage);
+}

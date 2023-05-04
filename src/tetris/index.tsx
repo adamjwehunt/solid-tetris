@@ -5,6 +5,7 @@ import {
 	getStartingPosition,
 	isValidPosition,
 	mergeStage,
+	unableToPlaceNewPiece,
 } from './helpers';
 import { getRandomPiece } from './pieces';
 import { Block, Piece, Action } from './types';
@@ -12,19 +13,25 @@ import eventHandler from './eventHandler';
 
 export const COLUMN_COUNT = 10;
 export const ROW_COUNT = 20;
-const LINE_CLEAR_SCORE = 1;
-const TICK_INTERVAL = 800;
+const LINE_CLEAR_COUNT = 1;
+const TICK_MS = 600;
 
-function useBoard() {
+function tetris() {
 	const [stage, setStage] = createSignal(createEmptyStage());
 	const [piece, setPiece] = createSignal(getRandomPiece());
 	const [position, setPosition] = createSignal(getStartingPosition(piece()));
-	const [score, setScore] = createSignal(0);
+	const [linesClearedCount, setLinesClearedCount] = createSignal(0);
+	const [isGameOver, setIsGameOver] = createSignal(false);
+	const [hasGameStarted, setHasGameStarted] = createSignal(false);
+	let tickInterval: number | undefined;
 
 	createEffect(removeLine);
 
-	const tickInterval = setInterval(tick, TICK_INTERVAL);
 	onCleanup(() => clearInterval(tickInterval));
+
+	function startTick() {
+		tickInterval = setInterval(tick, TICK_MS);
+	}
 
 	function tick() {
 		const previousPosition = position();
@@ -44,9 +51,31 @@ function useBoard() {
 	function placeNewPiece() {
 		const newPiece = getRandomPiece();
 
+		if (unableToPlaceNewPiece(newPiece, stage())) {
+			endGame();
+			return;
+		}
+
 		batch(() => {
 			setPiece(newPiece);
 			setPosition(getStartingPosition(newPiece));
+		});
+	}
+
+	function endGame() {
+		clearInterval(tickInterval);
+		setIsGameOver(true);
+	}
+
+	function startGame() {
+		batch(() => {
+			setHasGameStarted(true);
+			setStage(createEmptyStage());
+			setPiece(getRandomPiece());
+			setPosition(getStartingPosition(piece()));
+			setLinesClearedCount(0);
+			setIsGameOver(false);
+			startTick();
 		});
 	}
 
@@ -66,8 +95,8 @@ function useBoard() {
 
 		if (linesCleared) {
 			batch(() => {
-				setScore(
-					(previousScore) => previousScore + LINE_CLEAR_SCORE * linesCleared
+				setLinesClearedCount(
+					(previousScore) => previousScore + LINE_CLEAR_COUNT * linesCleared
 				);
 				setStage(newStage);
 			});
@@ -122,8 +151,11 @@ function useBoard() {
 
 	return {
 		display: () => mergeStage(stage(), piece(), position()),
-		score,
+		linesClearedCount,
+		isGameOver,
+		hasGameStarted,
+		startGame,
 	};
 }
 
-export default useBoard;
+export default tetris;
