@@ -20,11 +20,13 @@ export const GameOverView = ({
 }: GameOverViewProps) => {
 	onMount(() => {
 		document.addEventListener('click', startGame);
-		document.addEventListener('keydown', startGame);
+		document.addEventListener('keyup', startGame);
+		document.addEventListener('touchend', startGame);
 	});
 	onCleanup(() => {
 		document.removeEventListener('click', startGame);
-		document.removeEventListener('keydown', startGame);
+		document.removeEventListener('keyup', startGame);
+		document.removeEventListener('touchend', startGame);
 	});
 
 	return (
