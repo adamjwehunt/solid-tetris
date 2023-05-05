@@ -99,6 +99,7 @@ export default function eventHandler(onAction: (action: Action) => void) {
 
 		const action = keyboardEvents[event.key as AllowedKeyboardEvent];
 		if (action) {
+			event.preventDefault();
 			onAction(action);
 		}
 	}
